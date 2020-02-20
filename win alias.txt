@@ -1,0 +1,51 @@
+1.create .bat/cmd file with following (edit according your file locations). ->
+::myalias
+@echo off
+
+
+:: Temporary system path at cmd startup
+
+	::sublime::
+	set PATH=%PATH%;"C:\Program Files\Sublime Text 3"
+
+
+
+
+:: Add to path by command
+
+	::DOSKEY add_python26=set PATH=%PATH%;"C:\Python26\"
+	::DOSKEY add_python33=set PATH=%PATH%;"C:\Python33\"
+
+:: Commands
+
+	DOSKEY ls=dir /B
+
+	DOSKEY sublime=sublime_text $*  
+	    ::sublime_text.exe is name of the executable. By adding a temporary entry to system path, we don't have to write the whole directory anymore.
+	
+	::Wamp::
+	set PATH=%PATH%;"C:\wamp64"
+
+	DOSKEY wamp=wampmanager $* 
+ 
+ 	::HeidiSql::
+ 	set PATH=%PATH%;"C:\Program Files\HeidiSQL"
+
+	DOSKEY heidi=heidisql $* 
+
+	::DOSKEY gsp="C:\Program Files (x86)\Sketchpad5\GSP505en.exe"
+	::DOSKEY alias=notepad %USERPROFILE%\Dropbox\alias.cmd
+
+
+:: Directories
+
+	DOSKEY www=cd "C:\wamp64\www\$*"
+	::DOSKEY research=cd %USERPROFILE%\Dropbox\Research\
+
+
+
+
+
+2.registry -> HKEY_CURRENT_USER\Software\Microsoft\Command Processor (win 10)
+
+3. Add String Value entry with the name AutoRun and the full path of your .bat/.cmd file /Restat ur command prompt
